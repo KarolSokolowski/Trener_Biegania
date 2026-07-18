@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Trener Biegania - Biegaj mądrzej, osiągaj więcej | Trójmiasto, Straszyn, Pruszcz Gdański</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Profesjonalny trener biegania w Trójmieście, Straszynie i Pruszczu Gdańskim. Indywidualne plany treningowe, analiza video techniki biegu i treningi personalne." />
+    
+    <!-- Google Fonts: Montserrat (Stitch Standard Font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            canvas: "#FAF8F5",       // Ciepłe kremowe tło (Alabaster)
+                            surface: "#FFFFFF",      // Czysta biel dla kart
+                            ink: "#191C1E",          // Głęboki charcoal ze Stitch
+                            muted: "#434938",        // Muted olive-slate ze Stitch
+                            border: "#E0E3E5",       // Delikatny border ze Stitch
+                            primary: "#476800",      // Główny głęboki zielony ze Stitch
+                            accent: "#BEF264",       // Jasny limonkowy akcent ze Stitch
+                            accentDark: "#4B6E00",   // Ciemny limonkowy
+                            slate: "#565E74",        // Secondary slate-blue ze Stitch
+                            accentLight: "#F2F8E8"   // Bardzo jasny limonkowy tint
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["'Montserrat'", "sans-serif"],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem',
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 40px -15px rgba(25, 28, 30, 0.05)',
+                        'premium-hover': '0 30px 60px -15px rgba(25, 28, 30, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAF8F5;
+            color: #191C1E;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Ciemny, sportowy gradient na obrazek w tle Hero dla kontrastu białych/limonkowych napisów */
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(20, 24, 15, 0.78) 0%, rgba(20, 24, 15, 0.5) 50%, rgba(20, 24, 15, 0.3) 100%);
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-overlay {
+                background: linear-gradient(to bottom, rgba(20, 24, 15, 0.85) 0%, rgba(20, 24, 15, 0.55) 100%);
+            }
+        }
+
+        /* Stylizacja paska przewijania (Scrollbar) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E0E3E5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #476800;
+        }
+    </style>
+</head>
+<body class="selection:bg-brand-accent/30 selection:text-white">
+
+    <!-- Sticky Header & Navigation -->
+    <nav class="fixed top-0 w-full z-50 py-5 bg-transparent text-white border-b border-white/10 transition-all duration-300">
+        <div class="flex justify-between items-center px-6 md:px-16 max-w-[1400px] mx-auto w-full">
+            <a href="#" id="nav-logo" class="font-bold text-xl md:text-2xl tracking-tight text-white flex items-center gap-2 transition-colors duration-300">
+                <span class="w-8 h-8 rounded-full bg-brand-accent flex items-center justify-center text-brand-ink text-sm">
+                    <i class="fa-solid fa-person-running"></i>
+                </span>
+                Trener Biegania
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex gap-10 items-center">
+                <a class="nav-link text-sm font-semibold text-white/80 hover:text-brand-accent transition-colors" href="#o-mnie">O mnie</a>
+                <a class="nav-link text-sm font-semibold text-white/80 hover:text-brand-accent transition-colors" href="#opinie">Opinie</a>
+                <a class="nav-link text-sm font-semibold text-white/80 hover:text-brand-accent transition-colors" href="#cennik">Cennik</a>
+                <a class="nav-link text-sm font-semibold text-white/80 hover:text-brand-accent transition-colors" href="#kontakt">Kontakt</a>
+                
+                <!-- Social Icons Header -->
+                <div class="flex items-center gap-4 border-l border-white/20 pl-6">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="nav-social text-white/80 hover:text-brand-accent transition-colors" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="nav-social text-white/80 hover:text-brand-accent transition-colors" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook text-lg"></i>
+                    </a>
+                    <a href="https://strava.com" target="_blank" rel="noopener noreferrer" class="nav-social text-white/80 hover:text-brand-accent transition-colors" aria-label="Strava">
+                        <i class="fa-brands fa-strava text-lg"></i>
+                    </a>
+                </div>
+                
+                <a href="#kontakt" class="bg-brand-accent text-brand-ink hover:bg-white hover:text-brand-ink font-bold text-xs tracking-wider uppercase px-6 py-3.5 rounded-full transition-all duration-300 transform active:scale-95 shadow-sm">
+                    Darmowa Konsultacja
+                </a>
+            </div>
+            
+            <!-- Mobile Navigation Toggle -->
+            <button class="md:hidden flex flex-col justify-between w-6 h-4 z-50 relative focus:outline-none" onclick="toggleMobileMenu()" id="hamburger-btn" aria-label="Otwórz menu">
+                <span class="w-full h-0.5 bg-white rounded-full transition-transform duration-300 origin-left" id="bar1"></span>
+                <span class="w-full h-0.5 bg-white rounded-full transition-opacity duration-300" id="bar2"></span>
+                <span class="w-full h-0.5 bg-white rounded-full transition-transform duration-300 origin-left" id="bar3"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-brand-canvas/98 backdrop-blur-xl md:hidden transition-all duration-300 opacity-0 pointer-events-none flex flex-col justify-center items-center">
+        <div class="flex flex-col gap-8 text-center text-2xl font-bold">
+            <a class="text-brand-ink hover:text-brand-primary transition-colors" href="#o-mnie" onclick="toggleMobileMenu()">O mnie</a>
+            <a class="text-brand-ink hover:text-brand-primary transition-colors" href="#opinie" onclick="toggleMobileMenu()">Opinie</a>
+            <a class="text-brand-ink hover:text-brand-primary transition-colors" href="#cennik" onclick="toggleMobileMenu()">Cennik</a>
+            <a class="text-brand-ink hover:text-brand-primary transition-colors" href="#kontakt" onclick="toggleMobileMenu()">Kontakt</a>
+            
+            <div class="flex justify-center gap-6 mt-4 border-t border-brand-border/60 pt-6">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-brand-muted hover:text-brand-primary transition-colors" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-brand-muted hover:text-brand-primary transition-colors" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook text-xl"></i>
+                </a>
+                <a href="https://strava.com" target="_blank" rel="noopener noreferrer" class="text-brand-muted hover:text-brand-primary transition-colors" aria-label="Strava">
+                    <i class="fa-brands fa-strava text-xl"></i>
+                </a>
+            </div>
+            
+            <a href="#kontakt" class="bg-brand-accent text-brand-ink px-8 py-4 rounded-full hover:bg-brand-primary hover:text-white transition-colors mt-6 text-base tracking-wider uppercase" onclick="toggleMobileMenu()">
+                Darmowa Konsultacja
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section (Light & Warm background runner image fully visible) -->
+    <section class="relative min-h-[100dvh] flex items-center pt-24 pb-16 overflow-hidden">
+        <!-- Background Image of Runner -->
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYtc-0yJYDinZqi5ED_HHFvE9ywfiweh3nRK-05kRANvz_9lhk8wBpnAg5vNl1nv71YSpo6xqC2dRODeWKSfWSjOxq0dSbCESSTpQQe5fhlAjuKoOF-_BnnjtKADj3-Ytf2QaozNylwuM_ETIULFBKXfKkFTOpXG8PO6Xm_wle40ldMWf3-6o1RK5oUun-sDUoeLXmyEjvJTZrZB2nw2IwXKElTVr5KYpGWOcKLRIEvItX-h6UQDBq')"></div>
+            <!-- Translucent, warm dark overlay to maximize text contrast & image visibility -->
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="px-6 md:px-16 max-w-[1400px] mx-auto w-full relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-block text-[11px] font-bold text-brand-accent bg-white/10 border border-white/20 px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+                    Ekspert Biegania w Trójmieście, Straszynie i Pruszczu
+                </span>
+                <h1 class="text-4xl md:text-[54px] lg:text-[62px] text-white leading-[1.1] tracking-tighter mb-6 font-extrabold drop-shadow-md">
+                    Biegaj mądrzej, osiągaj więcej. Twój trener w <span class="text-brand-accent">Trójmieście</span>.
+                </h1>
+                <p class="text-base md:text-lg text-gray-200 mb-8 max-w-[55ch] leading-relaxed font-medium drop-shadow-sm">
+                    Indywidualne plany treningowe, analiza techniki biegowej i wsparcie mentalne. Niezależnie od poziomu, pomogę Ci dotrzeć do celu bez kontuzji.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-12">
+                    <a href="#cennik" class="inline-flex items-center justify-center bg-brand-accent text-brand-ink font-bold text-sm tracking-wider uppercase px-8 py-4 rounded-full hover:bg-white hover:text-brand-ink transition-all transform active:scale-95 shadow-md">
+                        Zacznij Trening
+                    </a>
+                    <a href="#o-mnie" class="inline-flex items-center justify-center border border-white text-white hover:bg-white/15 font-bold text-sm tracking-wider uppercase px-8 py-4 rounded-full transition-all transform active:scale-95 backdrop-blur-sm">
+                        Dowiedz się więcej
+                    </a>
+                </div>
+
+                <!-- Social Proof Stats (High contrast layout) -->
+                <div class="grid grid-cols-3 gap-6 md:gap-8 border-t border-white/20 pt-8 w-full max-w-lg">
+                    <div>
+                        <p class="text-3xl md:text-4xl font-extrabold text-brand-accent">10+</p>
+                        <p class="text-xs font-bold text-gray-300 mt-1 uppercase tracking-wider">Lat w sporcie</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl md:text-4xl font-extrabold text-brand-accent">200+</p>
+                        <p class="text-xs font-bold text-gray-300 mt-1 uppercase tracking-wider">Podopiecznych</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl md:text-4xl font-extrabold text-brand-accent">1.5k+</p>
+                        <p class="text-xs font-bold text-gray-300 mt-1 uppercase tracking-wider">km miesięcznie</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:block">
+            <a href="#o-mnie" class="flex flex-col items-center text-white/80 hover:text-brand-accent transition-colors gap-2" aria-label="Przejdź w dół">
+                <span class="text-[10px] font-bold tracking-widest uppercase">Przewiń</span>
+                <i class="fa-solid fa-arrow-down-long animate-bounce text-sm"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- O mnie / Achievements Section -->
+    <section class="py-24 bg-brand-surface border-y border-brand-border/40 reveal-on-scroll" id="o-mnie">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Left: Coach Photo (5/12 Asymmetric) -->
+                <div class="lg:col-span-5 relative flex justify-center lg:justify-start">
+                    <div class="relative w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden shadow-premium">
+                        <img alt="Trener Biegania Tomasz - uśmiechnięty na treningu biegowym" 
+                             class="w-full h-full object-cover" 
+                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWSNUhQdQrNkOx8DYUZdqRswvo9LSMmqCvdHO_oKdA09SK_2MxIDZ4q1l1RCpop3aKNZn9ZWdjgL7Etzp5nh_5OMcO7mJXAnRn4BIHGS_mGZ8TCCMCqA7ySKvN4xoFqwxZ9WoHIwc0JFpqbw9mFNOnknhENie1RHJo3BUm56-H0vjFKN-MaqLnjuyr1aeqzH3WrdgRL8NYjA8RHrHTKMMLe7KCNY5xK35S6MHvqWa26KfVD9I9nosz"/>
+                        <!-- Frame style outline inner shadow -->
+                        <div class="absolute inset-0 border-[8px] border-brand-surface rounded-[2rem] pointer-events-none"></div>
+                    </div>
+                    
+                    <!-- Floating badge in asymmetric offset -->
+                    <div class="absolute -bottom-6 -right-2 bg-brand-canvas p-6 rounded-2xl shadow-lg border border-brand-border text-center min-w-[180px]">
+                        <p class="text-brand-primary font-extrabold text-4xl mb-1">10+</p>
+                        <p class="text-brand-muted font-bold text-[11px] uppercase tracking-wider">Lat Doświadczenia</p>
+                    </div>
+                </div>
+
+                <!-- Right: Content & Cards (7/12) -->
+                <div class="lg:col-span-7">
+                    <span class="inline-block text-[11px] font-bold text-brand-primary bg-brand-accentLight px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+                        Poznaj Trenera
+                    </span>
+                    <h2 class="text-3xl md:text-4xl text-brand-ink mb-6 font-bold leading-tight">
+                        Więcej niż tylko bieganie.
+                    </h2>
+                    <p class="text-base md:text-lg text-brand-muted mb-10 leading-relaxed font-medium">
+                        Nazywam się Tomasz i od dekady pomagam biegaczom z Gdańska, Gdyni i Sopotu oraz okolic (Straszyn, Pruszcz Gdański) przełamywać ich własne granice. Moje podejście łączy naukowe metody treningowe z pasją do sportu, aby każdy kilometr przybliżał Cię do celu, nie ryzykując zdrowia.
+                    </p>
+                    
+                    <!-- Asymmetric features grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="bg-brand-canvas p-8 rounded-3xl border border-brand-border/60 hover:border-brand-primary/30 transition-all shadow-sm group">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-accentLight flex items-center justify-center text-brand-primary text-lg mb-6 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Analiza Video</h3>
+                            <p class="text-sm text-brand-muted leading-relaxed font-semibold">Szczegółowa analiza techniki biegu dla uniknięcia kontuzji i poprawy ekonomiki ruchu.</p>
+                        </div>
+                        
+                        <div class="bg-brand-canvas p-8 rounded-3xl border border-brand-border/60 hover:border-brand-primary/30 transition-all shadow-sm group">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-accentLight flex items-center justify-center text-brand-primary text-lg mb-6 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Indywidualizm</h3>
+                            <p class="text-sm text-brand-muted leading-relaxed font-semibold">Plany dostosowane do Twojego trybu życia, pracy i aktualnej kondycji fizycznej.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories / Testimonials -->
+    <section class="py-24 bg-brand-canvas reveal-on-scroll" id="opinie">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-16">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block text-[11px] font-bold text-brand-primary bg-brand-accentLight px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+                    Opinie Podopiecznych
+                </span>
+                <h2 class="text-3xl md:text-4xl text-brand-ink mb-4 font-bold">Historie Sukcesu</h2>
+                <p class="text-base text-brand-muted font-semibold">Zobacz, jak moi podopieczni osiągnęli swoje cele biegowe dzięki wspólnej pracy.</p>
+            </div>
+            
+            <!-- Bento-style 3-column asymmetric layout on desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Testimonial 1 -->
+                <div class="bg-brand-surface p-8 md:p-10 rounded-3xl shadow-premium border border-brand-border/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Rating -->
+                        <div class="flex gap-1 mb-6 text-amber-500">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-brand-ink italic mb-8 leading-relaxed font-medium">
+                            "Zaczynałem od zera, a po 6 miesiącach przebiegłem swój pierwszy półmaraton w Gdańsku bez bólu kolan. Tomasz to profesjonalista."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden bg-brand-canvas border border-brand-border">
+                            <img alt="Podopieczny Marek Wiśniewski" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsxXKexEWbpqeAVE-S-ERX4IERLza8pTjjTvCzFo_hx1LlmIw6vI_UH1F8UEItUJiznIYItT5HNFZiY06ha9fpTokuUzbbt3qZj5KS0tkAbX0kWe61HES-5DJsCCs72cKo6rA1uDiMnSK2vBQ4qswXqex1nCQT5rUIUiyR8nlPs7ZGDmAVifs-np7BIIKTPOaZCl9HeouvR305Avv6y9BMXE2Z8sJPY11wn1rzamK90NWlNv_kXQDl"/>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-brand-ink">Marek Wiśniewski</p>
+                            <p class="text-xs text-brand-muted font-bold">Biegacz amator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 (Highlighted center card) -->
+                <div class="bg-brand-surface p-8 md:p-10 rounded-3xl shadow-premium border-2 border-brand-primary flex flex-col justify-between relative transform md:-translate-y-2">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-primary text-white text-[10px] font-bold tracking-widest px-4 py-1 rounded-full uppercase">
+                        Super Wynik!
+                    </div>
+                    <div>
+                        <!-- Rating -->
+                        <div class="flex gap-1 mb-6 text-amber-500">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-brand-ink italic mb-8 leading-relaxed font-bold">
+                            "Plan treningowy PRO zmienił wszystko. Poprawiłam swoją życiówkę w maratonie o 15 minut! Wsparcie mentalne przed startem było kluczowe."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden bg-brand-canvas border border-brand-border">
+                            <img alt="Podopieczna Anna Kowalska" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoengJt5jVcqqZHohPpvksqp3XSQGyImpOJF__rgTECSL-xDCtvNlebdh3mOP4vXpcMK8khEryTJdg-QYnuBC4p4exE2SAsTOvSeI7HBbFYRyaWVqG2Ac2i_BZ2cRzM_q33ESIsVGhrC2GTX1vNuhFhbo-kYvJD1TbASKOFD6qbiLKcuc-2p58NYePvvBoXrOJVrD6-DDyEScmLTy3K3K0HoHwM64gJMYQdckujOGj_CO5TSNm7at4"/>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-brand-ink">Anna Kowalska</p>
+                            <p class="text-xs text-brand-muted font-bold">Maratonka</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-brand-surface p-8 md:p-10 rounded-3xl shadow-premium border border-brand-border/80 flex flex-col justify-between">
+                    <div>
+                        <!-- Rating -->
+                        <div class="flex gap-1 mb-6 text-amber-500">
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </div>
+                        <p class="text-brand-ink italic mb-8 leading-relaxed font-medium">
+                            "Szukałem kogoś, kto pomoże mi wrócić do sportu po kontuzji. Tomasz przeprowadził mnie przez proces bezpiecznie i skutecznie."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden bg-brand-canvas border border-brand-border">
+                            <img alt="Podopieczny Piotr Zieliński" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ1bn3sB21gDCBXw41zQQ52wBpHEMdehSdGR7lRYqYYjoi5_bM1OBLWBVkeniCaz7Ru3KDS8evTR14PpP5ToWm-YadPC8LCLtpRNpKvcrlj1A5EbmTwCsbUThpRPrpslGlkuZg1Fu7E8R01ZqJrP6UR7dGW5RDHLDIe9dL26icTTEIaN5wZ-0pJd97KsrRVN6ldGUHGzmeL6-9aJRuPPqLrtvmaE-VscV3kPOP-viSbLSzM71H7zr"/>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-brand-ink">Piotr Zieliński</p>
+                            <p class="text-xs text-brand-muted font-bold">Triathlonista</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-brand-surface border-y border-brand-border/40 reveal-on-scroll" id="cennik">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-16">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block text-[11px] font-bold text-brand-primary bg-brand-accentLight px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
+                    Cennik i Pakiety
+                </span>
+                <h2 class="text-3xl md:text-4xl text-brand-ink mb-4 font-bold">Wybierz swój plan</h2>
+                <p class="text-base text-brand-muted font-semibold">Inwestycja w Twoje zdrowie i formę, która zwraca się z każdym kilometrem.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Plan 1: Basic -->
+                <div class="bg-brand-canvas p-8 rounded-3xl border border-brand-border flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-ink mb-2">Biegacz Amator</h3>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-4xl font-extrabold text-brand-ink">199 PLN</span>
+                            <span class="text-sm font-semibold text-brand-muted">/ m-c</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-brand-muted font-semibold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                Plan treningowy online
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-brand-muted font-semibold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                Konsultacja raz w miesiącu
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-brand-muted font-semibold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                Dostęp do bazy wiedzy
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#kontakt" class="w-full text-center py-4 rounded-xl border border-brand-primary text-brand-primary font-bold text-sm tracking-wider uppercase hover:bg-brand-primary hover:text-white transition-colors duration-300">
+                        Wybierz Plan
+                    </a>
+                </div>
+
+                <!-- Plan 2: PRO (Highlighted) -->
+                <div class="bg-brand-canvas p-8 rounded-3xl border-2 border-brand-primary shadow-premium flex flex-col justify-between relative transform md:-translate-y-4">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-primary text-white text-[10px] font-bold tracking-widest px-4 py-1 rounded-full uppercase">
+                        Najczęstszy Wybór
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-ink mb-2">Personal PRO</h3>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-4xl font-extrabold text-brand-ink">399 PLN</span>
+                            <span class="text-sm font-semibold text-brand-muted">/ m-c</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-brand-ink font-bold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                Analiza video co 2 tygodnie
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-brand-ink font-bold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                Cotygodniowa korekta planu
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-brand-ink font-bold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                Stały kontakt (WhatsApp)
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-brand-ink font-bold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                1 trening personalny w miesiącu
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#kontakt" class="w-full text-center py-4 rounded-xl bg-brand-accent text-brand-ink font-bold text-sm tracking-wider uppercase hover:bg-brand-primary hover:text-white transition-colors duration-300 shadow-md">
+                        Wybierz Plan PRO
+                    </a>
+                </div>
+
+                <!-- Plan 3: Elite -->
+                <div class="bg-brand-canvas p-8 rounded-3xl border border-brand-border flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-brand-ink mb-2">Elite Athlete</h3>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-4xl font-extrabold text-brand-ink">749 PLN</span>
+                            <span class="text-sm font-semibold text-brand-muted">/ m-c</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-brand-muted font-semibold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                4 treningi personalne / m-c
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-brand-muted font-semibold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                Analiza wyników badań krwi
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-brand-muted font-semibold">
+                                <i class="fa-solid fa-circle-check text-brand-primary"></i>
+                                Priorytetowe wsparcie 24/7
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#kontakt" class="w-full text-center py-4 rounded-xl border border-brand-primary text-brand-primary font-bold text-sm tracking-wider uppercase hover:bg-brand-primary hover:text-white transition-colors duration-300">
+                        Wybierz Plan
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Form Section -->
+    <section class="py-24 bg-brand-canvas reveal-on-scroll" id="kontakt">
+        <div class="max-w-[1400px] mx-auto px-6 md:px-16">
+            
+            <div class="bg-brand-surface rounded-[2.5rem] overflow-hidden border border-brand-border shadow-premium flex flex-col lg:flex-row">
+                
+                <!-- Left: Info (Stitch dark slate-gray panel style) -->
+                <div class="lg:w-1/2 p-8 md:p-16 bg-brand-ink text-white flex flex-col justify-between">
+                    <div>
+                        <span class="inline-block text-[10px] font-bold text-brand-accent bg-white/10 px-3 py-1 rounded-full mb-6 tracking-widest uppercase">
+                            Dane kontaktowe
+                        </span>
+                        <h2 class="text-3xl md:text-4xl mb-6 font-bold leading-tight text-white">Gotowy na pierwszy krok?</h2>
+                        <p class="text-sm md:text-base text-gray-300 mb-12 max-w-md leading-relaxed font-semibold">
+                            Zostaw wiadomość lub umów się na darmową, 15-minutową konsultację telefoniczną, podczas której omówimy Twoje cele w Trójmieście, Straszynie lub Pruszczu Gdańskim.
+                        </p>
+                        
+                        <!-- Secure contact details -->
+                        <div class="space-y-6">
+                            
+                            <!-- Email -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-brand-accent text-sm">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold">Napisz do mnie</p>
+                                    <div class="text-sm font-semibold text-white flex items-center gap-2" id="contact-email-container">
+                                        <span id="secure-email">k••••••@trenerbiegania.pl</span>
+                                        <button class="text-xs text-brand-accent hover:underline flex items-center gap-1 font-bold focus:outline-none" onclick="revealContact('email')">
+                                            <i class="fa-solid fa-eye text-[10px]"></i> Pokaż
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-brand-accent text-sm">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold">Zadzwoń</p>
+                                    <div class="text-sm font-semibold text-white flex items-center gap-2" id="contact-phone-container">
+                                        <span id="secure-phone">+48 ••• ••• •••</span>
+                                        <button class="text-xs text-brand-accent hover:underline flex items-center gap-1 font-bold focus:outline-none" onclick="revealContact('phone')">
+                                            <i class="fa-solid fa-eye text-[10px]"></i> Pokaż
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-brand-accent text-sm">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 font-bold">Gdzie trenujemy</p>
+                                    <p class="text-sm font-semibold text-white">Gdańsk, Gdynia, Sopot, Straszyn, Pruszcz Gdański</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom credentials -->
+                    <div class="mt-12 lg:mt-0 pt-8 border-t border-white/10 text-xs text-gray-400 font-bold">
+                        Tomasz - Certyfikowany trener lekkoatletyki i biegania długodystansowego.
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="lg:w-1/2 p-8 md:p-16">
+                    <form class="space-y-6" id="contact-form" onsubmit="handleFormSubmit(event)">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[11px] font-bold text-brand-ink uppercase tracking-wider mb-2" for="user-name">Imię</label>
+                                <input class="w-full bg-brand-canvas border-none rounded-xl p-4 focus:ring-2 focus:ring-brand-primary outline-none text-sm transition-all text-brand-ink placeholder-brand-muted/50 font-semibold" 
+                                       placeholder="Jan" 
+                                       type="text" 
+                                       id="user-name" 
+                                       required/>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-brand-ink uppercase tracking-wider mb-2" for="user-email">Email</label>
+                                <input class="w-full bg-brand-canvas border-none rounded-xl p-4 focus:ring-2 focus:ring-brand-primary outline-none text-sm transition-all text-brand-ink placeholder-brand-muted/50 font-semibold" 
+                                       placeholder="jan@example.com" 
+                                       type="email" 
+                                       id="user-email" 
+                                       required/>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-[11px] font-bold text-brand-ink uppercase tracking-wider mb-2" for="user-goals">Twoje Cele</label>
+                            <select class="w-full bg-brand-canvas border-none rounded-xl p-4 focus:ring-2 focus:ring-brand-primary outline-none text-sm transition-all text-brand-ink font-semibold" id="user-goals">
+                                <option>Pierwsze 5km</option>
+                                <option>Życiówka w maratonie</option>
+                                <option>Powrót po kontuzji</option>
+                                <option>Poprawa techniki</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-[11px] font-bold text-brand-ink uppercase tracking-wider mb-2" for="user-msg">Wiadomość</label>
+                            <textarea class="w-full bg-brand-canvas border-none rounded-xl p-4 focus:ring-2 focus:ring-brand-primary outline-none text-sm transition-all text-brand-ink placeholder-brand-muted/50 font-semibold" 
+                                      placeholder="Opisz krótko swoją historię biegową..." 
+                                      rows="4" 
+                                      id="user-msg" 
+                                      required></textarea>
+                        </div>
+                        
+                        <div id="form-feedback" class="hidden text-sm font-semibold p-4 rounded-xl"></div>
+                        
+                        <button class="w-full bg-brand-accent text-brand-ink py-4.5 rounded-xl font-extrabold text-sm tracking-wider uppercase hover:bg-brand-primary hover:text-white transition-all transform active:scale-95 shadow-md flex items-center justify-center gap-2" 
+                                type="submit">
+                            <span>Wyślij zgłoszenie</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-canvas border-t border-brand-border py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-16 max-w-[1400px] mx-auto w-full">
+            <div class="mb-8 md:mb-0 text-center md:text-left">
+                <div class="font-bold text-lg text-brand-ink mb-2">
+                    Trener Biegania
+                </div>
+                <p class="text-xs text-brand-muted max-w-[320px] leading-relaxed font-semibold">
+                    Twoja droga do lepszej formy zaczyna się tutaj. Profesjonalne wsparcie w Trójmieście.
+                </p>
+            </div>
+            
+            <div class="flex flex-col items-center md:items-end gap-4">
+                <div class="flex gap-6 text-sm font-bold">
+                    <a class="text-brand-muted hover:text-brand-primary transition-colors" href="#">Polityka prywatności</a>
+                    <a class="text-brand-muted hover:text-brand-primary transition-colors" href="#">Regulamin</a>
+                    <a class="text-brand-muted hover:text-brand-primary transition-colors" href="#">FAQ</a>
+                </div>
+                <div class="text-xs text-brand-muted font-bold">
+                    © <span id="current-year">2026</span> Trener Biegania. Wszystkie prawa zastrzeżone.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logika -->
+    <script>
+        // Hamburger Menu Logic
+        let mobileMenuOpen = false;
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('hamburger-btn');
+            const bar1 = document.getElementById('bar1');
+            const bar2 = document.getElementById('bar2');
+            const bar3 = document.getElementById('bar3');
+            
+            mobileMenuOpen = !mobileMenuOpen;
+            
+            if (mobileMenuOpen) {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                menu.classList.add('opacity-100', 'pointer-events-auto');
+                
+                bar1.classList.add('rotate-45', 'translate-x-[3px]', 'translate-y-[2px]');
+                bar2.classList.add('opacity-0');
+                bar3.classList.add('-rotate-45', 'translate-x-[3px]', '-translate-y-[2px]');
+                
+                // Zawsze czarny kolor krzyżyka na jasnym overlay menu
+                bar1.classList.remove('bg-white');
+                bar1.classList.add('bg-brand-ink');
+                bar3.classList.remove('bg-white');
+                bar3.classList.add('bg-brand-ink');
+                
+                document.body.classList.add('overflow-hidden');
+            } else {
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                menu.classList.remove('opacity-100', 'pointer-events-auto');
+                
+                bar1.classList.remove('rotate-45', 'translate-x-[3px]', 'translate-y-[2px]');
+                bar2.classList.remove('opacity-0');
+                bar3.classList.remove('-rotate-45', 'translate-x-[3px]', '-translate-y-[2px]');
+                
+                // Przywrócenie koloru zależnego od pozycji scrolla
+                if (window.scrollY > 40) {
+                    bar1.classList.add('bg-brand-ink');
+                    bar1.classList.remove('bg-white');
+                    bar3.classList.add('bg-brand-ink');
+                    bar3.classList.remove('bg-white');
+                } else {
+                    bar1.classList.remove('bg-brand-ink');
+                    bar1.classList.add('bg-white');
+                    bar3.classList.remove('bg-brand-ink');
+                    bar3.classList.add('bg-white');
+                }
+                
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        // Close mobile menu on overlay click
+        document.getElementById('mobile-menu').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Navigation Shrink and Theme on Scroll (Dynamic transparent-to-light header)
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const logo = document.getElementById('nav-logo');
+            const links = document.querySelectorAll('.nav-link');
+            const socials = document.querySelectorAll('.nav-social');
+            const hamburgerBars = document.querySelectorAll('#hamburger-btn span');
+            
+            if (window.scrollY > 40) {
+                nav.classList.add('py-3.5', 'shadow-md', 'bg-brand-canvas/90', 'backdrop-blur-md', 'border-brand-border/60');
+                nav.classList.remove('py-5', 'bg-transparent', 'border-white/10', 'text-white');
+                
+                logo.classList.add('text-brand-ink');
+                logo.classList.remove('text-white');
+                
+                links.forEach(l => {
+                    l.classList.add('text-brand-muted');
+                    l.classList.remove('text-white/80');
+                });
+                
+                socials.forEach(s => {
+                    s.classList.add('text-brand-muted');
+                    s.classList.remove('text-white/80');
+                });
+                
+                if (!mobileMenuOpen) {
+                    hamburgerBars.forEach(b => {
+                        b.classList.add('bg-brand-ink');
+                        b.classList.remove('bg-white');
+                    });
+                }
+            } else {
+                nav.classList.remove('py-3.5', 'shadow-md', 'bg-brand-canvas/90', 'backdrop-blur-md', 'border-brand-border/60');
+                nav.classList.add('py-5', 'bg-transparent', 'border-white/10', 'text-white');
+                
+                logo.classList.remove('text-brand-ink');
+                logo.classList.add('text-white');
+                
+                links.forEach(l => {
+                    l.classList.remove('text-brand-muted');
+                    l.classList.add('text-white/80');
+                });
+                
+                socials.forEach(s => {
+                    s.classList.remove('text-brand-muted');
+                    s.classList.add('text-white/80');
+                });
+                
+                if (!mobileMenuOpen) {
+                    hamburgerBars.forEach(b => {
+                        b.classList.remove('bg-brand-ink');
+                        b.classList.add('bg-white');
+                    });
+                }
+            }
+        });
+
+        // Secure contact details data (Base64 encrypted to prevent scrapers)
+        const secureData = {
+            email: 'a29udGFrdEB0cmVuZXJiaWVnYW5pYS5wbA==', // kontakt@trenerbiegania.pl
+            phone: 'KzQ4IDUwMCAwMDAgMDAw'                  // +48 500 000 000
+        };
+
+        // Anti-spam click-to-reveal implementation (programmatic DOM insertion for XSS safety)
+        function revealContact(type) {
+            if (type === 'email') {
+                const container = document.getElementById('contact-email-container');
+                if (container) {
+                    const email = atob(secureData.email);
+                    const link = document.createElement('a');
+                    link.href = `mailto:${email}`;
+                    link.className = 'font-semibold text-white hover:text-brand-accent transition-colors';
+                    link.textContent = email;
+                    container.innerHTML = '';
+                    container.appendChild(link);
+                }
+            } else if (type === 'phone') {
+                const container = document.getElementById('contact-phone-container');
+                if (container) {
+                    const phone = atob(secureData.phone);
+                    const link = document.createElement('a');
+                    link.href = `tel:${phone.replace(/\s+/g, '')}`;
+                    link.className = 'font-semibold text-white hover:text-brand-accent transition-colors';
+                    link.textContent = phone;
+                    container.innerHTML = '';
+                    container.appendChild(link);
+                }
+            }
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('user-name').value.trim();
+            const email = document.getElementById('user-email').value.trim();
+            const goal = document.getElementById('user-goals').value;
+            const message = document.getElementById('user-msg').value.trim();
+            
+            const feedback = document.getElementById('form-feedback');
+            
+            // Prosta symulacja bezpiecznego przesyłania
+            if (name && email && message) {
+                feedback.classList.remove('hidden', 'bg-red-100', 'text-red-800');
+                feedback.classList.add('bg-green-50', 'text-green-800', 'border', 'border-green-200');
+                feedback.textContent = `Dziękuję ${name}! Twoje zgłoszenie zostało pomyślnie wysłane. Skontaktuję się z Tobą w ciągu 24 godzin.`;
+                
+                // Reset form
+                event.target.reset();
+            } else {
+                feedback.classList.remove('hidden', 'bg-green-50', 'text-green-800');
+                feedback.classList.add('bg-red-50', 'text-red-800', 'border', 'border-red-200');
+                feedback.textContent = 'Proszę wypełnić wszystkie wymagane pola.';
+            }
+        }
+
+        // Set Dynamic Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Smooth reveal on scroll interaction using Intersection Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+                section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
